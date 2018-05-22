@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import App from './login/login';
 import registerServiceWorker from './registerServiceWorker';
 import { counter } from './index.redux';
 
@@ -13,17 +13,17 @@ const store = createStore(counter, compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f
 ))
-function Erying(){
+function Erying() {
     return <h2>一营</h2>
 }
-function Qibinglian(){
+function Qibinglian() {
     return <h2>骑兵连</h2>
 }
 ReactDOM.render(
     (<Provider store={store}>
         <BrowserRouter>
             <div>
-                <ul>
+                {/* <ul>
                     <li>
                         <Link to="/">一营</Link>
                     </li>
@@ -36,7 +36,7 @@ ReactDOM.render(
                 </ul>
                 <Route path="/" component={App}></Route>
                 <Route path="/erying" component={Erying}></Route>
-                <Route path="/qibinglian" component={Qibinglian}></Route>
+                <Route path="/qibinglian" component={Qibinglian}></Route> */}
                 <App />
             </div>
         </BrowserRouter>
