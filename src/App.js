@@ -7,7 +7,7 @@ import './App.css';
 
 // App = connect(mapStateProps,actionCreators)(App)
 @connect(
-  state =>({num:state}),
+  state =>({num:state.counter}),
   {addGun,removeGun,addGunAsny}
 )
 
