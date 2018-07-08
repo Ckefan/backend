@@ -3,6 +3,7 @@ import {Button} from 'antd';
 import { connect } from 'react-redux'
 import { Redirect} from 'react-router-dom'
 import {login} from './Auth.redux'
+import {axios} from axios
 
 //两个reducers 每个reducers
 @connect(
@@ -10,6 +11,9 @@ import {login} from './Auth.redux'
   {login}
 )
 class Auth extends Component {
+  componentDidMount(){
+    // axios.get('http:www.weather.com.cn/data/cityinfo/')
+  }
   render() {
     return (
       <div>

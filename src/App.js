@@ -4,12 +4,12 @@ import {addGun,removeGun,addGunAsny} from './index.redux';
 import { Button } from 'antd';
 import './App.css';
 
-
 // App = connect(mapStateProps,actionCreators)(App)
 @connect(
   state =>({num:state.counter}),
   {addGun,removeGun,addGunAsny}
 )
+
 
 class App extends Component {
   constructor(props){
