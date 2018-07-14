@@ -1,13 +1,19 @@
 from django.shortcuts import render
-from django.http import HttpResponse,JsonResponse
+from django.http import HttpResponse, JsonResponse
+from api.models import BooksPublisher
+from django.core import serializers
+import json
+
 
 # Create your views here.
 def index(request):
-    # return HttpResponse({"a":1,"b":2})
-    return JsonResponse({"result": 0, "data":[{"name":"liling","age":"15"},{"name":"wanglei","age":"25"},{"name":"qinhuan","age":"35"}],"msg": "执行成功"})
+    list = BooksPublisher.objects.all()
+    posts_serialized = serializers.serialize('json', list)
+    info = {'msg': '请求成功！', 'code': 1}
+    data = []
+    for i in json.loads(posts_serialized):
+        data.append(i['fields'])
+    info['data'] = data
+    # json.loads(posts_serialized),safe=False
 
-def get(request):
-    return HttpResponse("get")
-
-def post(request):
-    return HttpResponse("post")
+    return JsonResponse(info, safe=False)
