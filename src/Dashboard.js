@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Button} from 'antd'
 import { Link,Route,Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
-import {logout} from './Auth.redux'
+import {Logout} from './Auth.redux'
 
 import App from './App';
 
@@ -14,7 +14,7 @@ function Qibinglian() {
 }
 @connect(
   state=>state.auth,
-  {logout}
+  {Logout}
 )
 class Dashboard extends Component {
   render() {
@@ -23,7 +23,7 @@ class Dashboard extends Component {
     const app=(
       <div>
         <h1>独立团</h1>
-        {this.props.isAuth?<Button onClick={this.props.logout}>注销</Button>:null}
+        {this.props.isAuth?<Button onClick={this.props.Logout}>注销</Button>:null}
         <ul>
           <li>
               <Link to={`${match.url}/`}>一营</Link>

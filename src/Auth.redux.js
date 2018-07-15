@@ -11,9 +11,9 @@ export function auth(state={isAuth:false,user:'李云龙'},action){
       return state;
   }
 }
-export function login(){
+export function Login(){
   return {type:LOGIN}
 }
-export function logout(){
+export function Logout(){
   return {type:LOGOUT}
 }

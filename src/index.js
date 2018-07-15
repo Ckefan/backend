@@ -13,7 +13,8 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 import reducers from './reducer.js'
-import Auth from './Auth.js'
+// import Auth from './Auth.js'
+import login from './container/login/login.js'
 import Dashboard from './Dashboard.js'
 
 const store = createStore(reducers, compose(
@@ -25,7 +26,7 @@ ReactDOM.render(
     (<Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route path="/login" exact component={Auth}></Route>
+                <Route path="/login" exact component={login}></Route>
                 <Route path="/dashboard" component={Dashboard}></Route>
                 <Redirect to="/dashboard"></Redirect>
             </Switch> 
