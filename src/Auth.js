@@ -3,7 +3,7 @@ import {Button} from 'antd';
 import { connect } from 'react-redux'
 import { Redirect} from 'react-router-dom'
 import {login} from './Auth.redux'
-import {axios} from axios
+// import {axios} from 'axios'
 
 //两个reducers 每个reducers
 @connect(

@@ -25,7 +25,11 @@ SECRET_KEY = '0##*qjhp&_3dqcm2so^2rjll0&2$#lthp%rvw3a+*^g+10e9av'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'www.ckefan.com',
+    '127.0.0.1',
+    '8080'
+]
 
 
 # Application definition
@@ -39,14 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'blog',
-    'books',
+    'form',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -57,7 +61,7 @@ ROOT_URLCONF = 'python.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR+"/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

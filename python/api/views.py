@@ -17,3 +17,17 @@ def index(request):
     # json.loads(posts_serialized),safe=False
 
     return JsonResponse(info, safe=False)
+
+#模板文件
+def hello(request): 
+    list = BooksPublisher.objects.all()
+    posts_serialized = serializers.serialize('json', list)
+    info = {'msg': '请求成功！', 'code': 1}
+    data = []
+    for i in json.loads(posts_serialized):
+        data.append(i['fields'])
+    info['data'] = data
+    print(info)
+    context ={}
+    context['hello']='Hello World'
+    return render(request,'first.html',info)
