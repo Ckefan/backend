@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {Login} from '../../Auth.redux'
-import { Form, Icon, Input, Button } from 'antd'
+import { Form, Icon, Input, Button,Row, Col } from 'antd'
+import './login.sass';
 
 const FormItem = Form.Item;
 @connect(
@@ -12,22 +13,27 @@ const FormItem = Form.Item;
 class login extends Component {
   render() {
     return (
-      <div className="login">
-        {this.props.isAuth?<Redirect to='/dashboard'/>:null}
-        <div className="loginbox">
-          <Form className="login-form">
-            <FormItem>
-              <Input prefix={<Icon type="user" style={{color:'rgba(0,0,0,0.25)'}}/>} placeholder="Username"/>
-            </FormItem>
-            <FormItem>
-              <Input prefix={<Icon type="user" style={{color:'rgba(0,0,0,0.25)'}}/>} placeholder="Password"/>
-            </FormItem>
-            <FormItem>
-              <Button type="primary" htmlType="submit" onClick={this.props.Login}>登录</Button>
-            </FormItem>
-          </Form>
-        </div>
-      </div>
+      <Row type="flex" justify="center" align="middle"> 
+        <Col>
+          <div className="login">
+            {this.props.isAuth?<Redirect to='/dashboard'/>:null}
+                <div className="loginbox">
+                  <Form className="login-form">
+                    <FormItem>
+                      <Input prefix={<Icon type="user" style={{color:'rgba(0,0,0,0.25)'}}/>} placeholder="Username"/>
+                    </FormItem>
+                    <FormItem>
+                      <Input prefix={<Icon type="user" style={{color:'rgba(0,0,0,0.25)'}}/>} placeholder="Password"/>
+                    </FormItem>
+                    <FormItem>
+                      <Button type="primary" htmlType="submit" onClick={this.props.Login}>登录</Button>
+                    </FormItem>
+                  </Form>
+                </div>
+              
+          </div>
+        </Col>
+      </Row>
     );
   }
 }
