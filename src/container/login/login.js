@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {Login} from '../../Auth.redux'
 import { Form, Icon, Input, Button,Row, Col } from 'antd'
-import './login.sass';
+import './login.css';
 
 const FormItem = Form.Item;
 @connect(
