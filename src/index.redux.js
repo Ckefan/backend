@@ -2,7 +2,6 @@ const ADD_GUN = 'add';
 const REMOVE_GUN ='subtract';
 
 export function counter(state =10,action){
-    console.log(state)
     switch(action.type){
       case 'add':
         return state+1
@@ -12,6 +11,9 @@ export function counter(state =10,action){
         return 10
     }
   }
+export function bg(action){
+    return action;
+}
 export function addGun(){
     return {type:ADD_GUN}
 }
