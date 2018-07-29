@@ -16,11 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path ,include
 
-import blog.views,api.views,form.views as bv
+import api.views as bv
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls')),
-    path('api/',include('api.urls')),
-    path('form/',include('form.urls')),
+    path('api/',include('api.urls'))
 ]

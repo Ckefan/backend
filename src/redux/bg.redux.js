@@ -1,12 +1,8 @@
 export function bg(state=0,action){
-  console.log(state,action,131213)
-  switch(action.type){
-    case 0:
-      return state+1
-    case 1:
-      return state+2
-    default:
-      return 2
+  if(typeof action.type ==='number'){
+    return action.type;
+  }else{
+    return 2
   }
 }
 export function changeBg(num=0){

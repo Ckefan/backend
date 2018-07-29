@@ -11,15 +11,9 @@ import {changeBg} from './redux/bg.redux';
 )
 
 class App extends Component {
-  // constructor(props){
-  //   super(props)
-  //   // this.bgColor= this.bgColor.bind(this)
-  // }
-  bgColor(){
-    let img = require(`./images/wallpaper${this.props.num}.jpg`)
-    return  {backgroundImage:`url(${img})`}
-  }
-  render(props) {
+  render() {
+    let img = require(`./images/wallpaper${this.props.num}.jpg`);
+    document.body.style.backgroundImage=`url(${img})`;
     return (
       <div className="ark">
         <BrowserRouter>

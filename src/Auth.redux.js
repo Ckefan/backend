@@ -3,7 +3,6 @@ const LOGOUT='LOGOUT'
 const REGISTER='REGISTER'
 
 export function auth(state={isAuth:false,user:'李云龙'},action){
-  console.log(state,action,'auth')
   switch (action.type) {
     case LOGIN:
       return {...state,isAuth:true}

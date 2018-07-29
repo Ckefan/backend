@@ -12,11 +12,6 @@ import './App.css';
 
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    console.log("组件初始化");
-    console.log(this)
-  }
   render(props) {
     return (
       <div className="App">
