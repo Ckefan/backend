@@ -17,10 +17,12 @@ def index(request):
     info['data'] = []
     if 'username' in request.POST:
         user = UserInfo.objects.get(username=request.POST['username'])
+        print(user.password)
         succ = check_password(request.POST['password'],user.password)
         print(succ)
         if succ:
             info['msg']='登录成功！'
+            
         else:
             info['msg']='用户名或密码错误！'
     else:
