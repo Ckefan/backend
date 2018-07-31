@@ -8,6 +8,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import './axios.js'
+import './config'
 import './index.css'
 import registerServiceWorker from './registerServiceWorker'
 

@@ -10,12 +10,11 @@ const instance = axios.create({
   responseType:'json',
   transformRequest:[
     function(data){
-      console.log(data,123416123)
       return qs.stringify(data);
     }
   ]
 })
-React.$http = instance;
+React.Component.prototype.$http = instance;
 instance.interceptors.request.use(
   config =>{
     return config;

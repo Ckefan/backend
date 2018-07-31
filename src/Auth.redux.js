@@ -2,7 +2,7 @@ const LOGIN ='LOGIN'
 const LOGOUT='LOGOUT'
 const REGISTER='REGISTER'
 
-export function auth(state={isAuth:false,user:'李云龙'},action){
+export function auth(state={isAuth:false},action){
   switch (action.type) {
     case LOGIN:
       return {...state,isAuth:true}

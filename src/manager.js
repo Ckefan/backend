@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { BrowserRouter, Route,Redirect,Switch} from 'react-router-dom';
 import login from './container/login/login.js'
-import Dashboard from './Dashboard.js'
+import home from './container/home/home'
 import {changeBg} from './redux/bg.redux';
 
 @connect(
@@ -19,8 +19,8 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
               <Route path="/login" exact component={login}></Route>
-              <Route path="/dashboard" component={Dashboard}></Route>
-              <Redirect to="/dashboard"></Redirect>
+              <Route path="/home" component={home}></Route>
+              <Redirect to="/home"></Redirect>
           </Switch>
         </BrowserRouter>
       </div>
