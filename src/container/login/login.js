@@ -28,12 +28,12 @@ class login extends Component {
           let res =re.data;
           console.log(res)
           if(res.code===1){
-            
             this.props.Login();
+          }else if(res.code===-1){
+            message.warning(<span style={{color:'#FAAD14'}}>{res.msg}</span> )
           }
         }).catch((err)=>{
-          message.warning(<span style={{color:'red'}}>this.$hint.MSG.connect_fail</span> )
-          console.log(err)
+          message.error(<span style={{color:'red'}}>{this.$hint.MSG.connect_fail}</span> )
         })
       }
     })

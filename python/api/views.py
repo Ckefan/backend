@@ -25,8 +25,10 @@ def index(request):
             
         else:
             info['msg']='用户名或密码错误！'
+            info['code']=-1
     else:
          info['msg']='请填写用户名或密码！'
+         info['code']=-1
    
     return JsonResponse(info, safe=False)
 

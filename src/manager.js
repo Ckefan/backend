@@ -20,7 +20,7 @@ class App extends Component {
           <Switch>
               <Route path="/login" exact component={login}></Route>
               <Route path="/home" component={home}></Route>
-              <Redirect to="/home"></Redirect>
+              <Redirect to="/login"></Redirect>
           </Switch>
         </BrowserRouter>
       </div>
