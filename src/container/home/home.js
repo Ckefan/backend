@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Menu, Icon } from 'antd';
-
+import './home.scss';
 const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
+// const MenuItemGroup = Menu.ItemGroup;
 
 class home extends Component {
   state = {
@@ -23,18 +23,14 @@ class home extends Component {
         <Menu.Item key="app">
           <Icon type="appstore" />用户列表
         </Menu.Item>
-        <SubMenu title={<span><Icon type="setting" />设置</span>}>
-          <MenuItemGroup title="Item 1">
-            <Menu.Item key="setting:1">选项1</Menu.Item>
-            <Menu.Item key="setting:2">选项2</Menu.Item>
-          </MenuItemGroup>
-          <MenuItemGroup title="Item 2">
-            <Menu.Item key="setting:3">选项3</Menu.Item>
-            <Menu.Item key="setting:4">选项4</Menu.Item>
-          </MenuItemGroup>
+        <SubMenu title={<span><Icon type="setting" />界面配置</span>}>
+
+          <Menu.Item key="setting:1">选项1</Menu.Item>
+          <Menu.Item key="setting:2">选项2</Menu.Item>
+
         </SubMenu>
         <Menu.Item key="alipay">
-          测试
+          数据统计
         </Menu.Item>
       </Menu>
     )

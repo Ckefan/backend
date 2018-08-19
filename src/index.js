@@ -23,7 +23,7 @@ const store = createStore(reducers, compose(
 ))
 ReactDOM.render(
 	(<Provider store={store}>
-		<Manager/>
+		<Manager />
 	</Provider>),
 	document.getElementById('root')
 );
