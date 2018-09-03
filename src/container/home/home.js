@@ -1,40 +1,24 @@
 import React, { Component } from 'react'
-import { Menu, Icon } from 'antd';
+import { Form, Icon, Input, Button, Row, Col, message } from 'antd'
 import './home.scss';
-const SubMenu = Menu.SubMenu;
-// const MenuItemGroup = Menu.ItemGroup;
 
 class home extends Component {
-  state = {
-    current: "mail",
-  }
-  handleClick = (e) => {
-    console.log('click', e);
-    this.setState({
-      current: e.key,
+  componentDidMount() {
+    this.$http.get('/api/home').then(re => {
+      let res = re.data;
+      if (res.code === 1) {
+        console.log(res.data);
+      } else {
+        message.warning(<span style={{ color: '#FAAD14' }}>{res.msg}</span>)
+      }
     })
   }
   render() {
     return (
-      <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-        <Menu.Item key="mail">
-          <Icon type="mail" />主页
-        </Menu.Item>
-        <Menu.Item key="app">
-          <Icon type="appstore" />用户列表
-        </Menu.Item>
-        <SubMenu title={<span><Icon type="setting" />界面配置</span>}>
-
-          <Menu.Item key="setting:1">选项1</Menu.Item>
-          <Menu.Item key="setting:2">选项2</Menu.Item>
-
-        </SubMenu>
-        <Menu.Item key="alipay">
-          数据统计
-        </Menu.Item>
-      </Menu>
+      <div>这是主页</div>
     )
   }
 }
+
 
 export default home

@@ -1,39 +1,46 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from api.models import UserInfo
-from django.core import serializers #序列化数据
-from django.contrib.auth.hashers import make_password,check_password
+from django.core import serializers  #序列化数据
+from django.contrib.auth.hashers import make_password, check_password
 import json
+
+info = {'msg': '请求成功！', 'code': 1}
+data = []
 
 
 # Create your views here.
 def index(request):
     # list = UserInfo.objects.all()
     # posts_serialized = serializers.serialize('json', list)
-    info = {'msg': '请求成功！', 'code': 1}
-    data = []
+
     # for i in json.loads(posts_serialized):
     #     data.append(i['fields'])
     info['data'] = []
     if 'username' in request.POST:
         user = UserInfo.objects.get(username=request.POST['username'])
         print(user.password)
-        succ = check_password(request.POST['password'],user.password)
+        succ = check_password(request.POST['password'], user.password)
         print(succ)
         if succ:
-            info['msg']='登录成功！'
-            
+            info['msg'] = '登录成功！'
+
         else:
-            info['msg']='用户名或密码错误！'
-            info['code']=-1
+            info['msg'] = '用户名或密码错误！'
+            info['code'] = -1
     else:
-         info['msg']='请填写用户名或密码！'
-         info['code']=-1
-   
+        info['msg'] = '请填写用户名或密码！'
+        info['code'] = -1
+
     return JsonResponse(info, safe=False)
 
+
+def home(request):
+    info['data'] = []
+
+
 #模板文件
-# def hello(request): 
+# def hello(request):
 #     list = BooksPublisher.objects.all()
 #     posts_serialized = serializers.serialize('json', list)
 #     info = {'msg': '请求成功！', 'code': 1}
