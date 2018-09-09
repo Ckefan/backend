@@ -29,6 +29,12 @@ class App extends Component {
     this.setState({
       routeDefault: `/manager/${e.key}`,
     })
+    this.$http.get('/api/verify/logout').then(re => {
+      let res = re.data;
+      if (res.code === 1) {
+        console.log(res.data);
+      }
+    })
     console.log(e, this.state)
   }
   render() {

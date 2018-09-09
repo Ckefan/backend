@@ -21,7 +21,7 @@ class login extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, value) => {
       if (!err) {
-        this.$http.post('/api/login/', {
+        this.$http.post('/api/verify/login/', {
           username: value.username,
           password: value.password
         }).then((re) => {

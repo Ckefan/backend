@@ -1,12 +1,10 @@
-from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from api.models import UserInfo
-from django.core import serializers  #序列化数据
-from django.contrib.auth.hashers import make_password, check_password
+# from django.core import serializers  #序列化数据
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth, admin
 import json
 
+# admin.site.register(auth)
 info = {'msg': '', 'code': 1}
 
 
@@ -32,7 +30,7 @@ def set_password(request):
     return JsonResponse(info, safe=False)
 
 
-def index(request):
+def login(request):
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
     user = auth.authenticate(username=username, password=password)
@@ -47,20 +45,10 @@ def index(request):
     return JsonResponse(info, safe=False)
 
 
-def home(request):
-    info['data'] = []
-
-
-#模板文件
-# def hello(request):
-#     list = BooksPublisher.objects.all()
-#     posts_serialized = serializers.serialize('json', list)
-#     info = {'msg': '请求成功！', 'code': 1}
-#     data = []
-#     for i in json.loads(posts_serialized):
-#         data.append(i['fields'])
-#     info['data'] = data
-#     print(info)
-#     context ={}
-#     context['hello']='Hello World'
-#     return render(request,'first.html',info)
+def logout(request):
+    print(request.user.is_active)
+    auth.logout(request)
+    print(request.user.is_active)
+    info['msg'] = '注销成功！'
+    info['code'] = 1
+    return JsonResponse(info, safe=False)
